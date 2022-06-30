@@ -1,11 +1,16 @@
 .header{
-    grid-area:header;
+    grid-area: h;
     background-color:#2b2b2b ;
-    
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
 .logo{
     width: 60px;
     height: 70px;
+    position: relative;
+    left:340px;
 }
 .title{
     text-transform: uppercase;

@@ -1,19 +1,17 @@
-import React from "react";
-import st from './Movies.module.css'
+import React from 'react';
+import st from './Movies.module.css';
+import data from '../../films.json';
+import MoviesItem from './MovieItem';
 
-const Movies = ()=>{
-    return(
-        <div className={st.movies}>
-            <div>Comedy</div>
-            <div>Melodrama</div>
-            <div>Adventure movie</div>
-            <div>Western</div>
-            <div>Action</div>
-            <div>Horror</div>
-            <div>Thriller</div>
-            <div>Detective</div>
-        </div>
-    )
-}
+const Movies = () => {
+  const movies = data.movies;
+  return (
+    <div className={st.movies}>
+      {movies.map((movie) => (
+        <MoviesItem movie={movie}/>
+      ))}
+    </div>
+  );
+};
 
 export default Movies;

@@ -9,8 +9,8 @@ const onSearch = (value) => console.log(value);
 const Header = () => {
   return (
     <div className={st.header}>
-      <h2 className={st.title}>Movies</h2>
       <img src={logo} className={st.logo} alt="logo"></img>
+      <h2 className={st.title}>Movies</h2>
       <Space direction="vertical" />
       <Search
         placeholder="search movie"

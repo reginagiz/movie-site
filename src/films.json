@@ -1,6 +1,7 @@
 {
     "movies": [
         {
+          "id": 1,
           "Title": "Avatar",
           "Year": "2009",
           "Rated": "PG-13",
@@ -30,6 +31,7 @@
           ]
         },
         {
+          "id": 2,
           "Title": "I Am Legend",
           "Year": "2007",
           "Rated": "PG-13",
@@ -43,7 +45,7 @@
           "Language": "English",
           "Country": "USA",
           "Awards": "9 wins & 21 nominations.",
-          "Poster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/60692c49-3ca0-46ed-92d4-db37636f8d5b/300x450",
+          "Poster": "https://cdn.dsmcdn.com/ty12/product/media/images/20200916/15/10852235/86815924/1/1_org_zoom.jpg",
           "Metascore": "65",
           "imdbRating": "7.2",
           "imdbVotes": "533,874",
@@ -58,6 +60,7 @@
           ]
         },
         {
+          "id": 3,
           "Title": "300",
           "Year": "2006",
           "Rated": "R",
@@ -85,6 +88,7 @@
           ]
         },
         {
+          "id": 4,
           "Title": "The Avengers",
           "Year": "2012",
           "Rated": "PG-13",
@@ -98,7 +102,7 @@
           "Language": "English, Russian",
           "Country": "USA",
           "Awards": "Nominated for 1 Oscar. Another 34 wins & 75 nominations.",
-          "Poster": "https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/afab999b-c6bb-4fac-a951-03f72fd2b8cf/600x900",
+          "Poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg",
           "Metascore": "69",
           "imdbRating": "8.1",
           "imdbVotes": "1,003,301",
@@ -114,6 +118,7 @@
           ]
         },
         {
+          "id": 5,
           "Title": "The Wolf of Wall Street",
           "Year": "2013",
           "Rated": "R",
@@ -143,6 +148,7 @@
           ]
         },
         {
+          "id": 6,
           "Title": "Interstellar",
           "Year": "2014",
           "Rated": "PG-13",
@@ -172,6 +178,7 @@
           ]
         },
         {
+          "id": 7,
           "Title": "Game of Thrones",
           "Year": "2011",
           "Rated": "TV-MA",
@@ -202,6 +209,7 @@
           ]
         },
         {
+          "id": 8,
           "Title": "Vikings",
           "Year": "2013",
           "Rated": "TV-14",
@@ -232,6 +240,7 @@
           ]
         },
         {
+          "id": 9,
           "Title": "Gotham",
           "Year": "2014",
           "Rated": "TV-14",
@@ -262,6 +271,7 @@
           ]
         },
         {
+          "id": 10,
           "Title": "Power",
           "Year": "2014",
           "Rated": "TV-MA",
@@ -292,6 +302,7 @@
           ]
         },
         {
+          "id": 11,
           "Title": "Narcos",
           "Year": "2015",
           "Rated": "TV-MA",
@@ -322,8 +333,9 @@
           ]
         },
         {
+          "id": 12,
           "Title": "Breaking Bad",
-          "Year": "2008–2013",
+          "Year": "2008",
           "Rated": "TV-14",
           "Released": "20 Jan 2008",
           "Runtime": "49 min",
@@ -352,6 +364,7 @@
           ]
         },
         {
+          "id": 13,
           "ComingSoon": true,
           "Title": "Doctor Strange",
           "Year": "2016",
@@ -368,7 +381,7 @@
           "Awards": "N/A",
           "Poster": "http://geekstra.com/wp-content/uploads/2016/09/geekstra_doctor_strange_poster-1.jpg",
           "Metascore": "N/A",
-          "imdbRating": "N/A",
+          "imdbRating": "7.5",
           "imdbVotes": "N/A",
           "imdbID": "tt1211837",
           "Type": "movie",
@@ -380,6 +393,7 @@
           ]
         },
         {
+          "id": 14,
           "ComingSoon": true,
           "Title": "Rogue One: A Star Wars Story",
           "Year": "2016",
@@ -396,7 +410,7 @@
           "Awards": "1 nomination.",
           "Poster": "https://m.media-amazon.com/images/I/714a57j4qBL._AC_SY550_.jpg",
           "Metascore": "N/A",
-          "imdbRating": "N/A",
+          "imdbRating": "7.8",
           "imdbVotes": "N/A",
           "imdbID": "tt3748528",
           "Type": "movie",
@@ -410,6 +424,7 @@
           ]
         },
         {
+          "id": 15,
           "ComingSoon": true,
           "Title": "Assassin's Creed",
           "Year": "2016",
@@ -426,7 +441,7 @@
           "Awards": "N/A",
           "Poster": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZucin6sR3aRL0VLnzaaFq0OfFByvVLst8azDU7i1dUeSO3_Pk8PVLkpwd4DfwSR8Xuzw&usqp=CAU",
           "Metascore": "N/A",
-          "imdbRating": "N/A",
+          "imdbRating": "5.6",
           "imdbVotes": "N/A",
           "imdbID": "tt2094766",
           "Type": "movie",
@@ -439,9 +454,10 @@
           ]
         },
         {
+          "id": 16,
           "ComingSoon": true,
           "Title": "Luke Cage",
-          "Year": "2016–",
+          "Year": "2016",
           "Rated": "TV-MA",
           "Released": "30 Sep 2016",
           "Runtime": "55 min",
@@ -455,7 +471,7 @@
           "Awards": "N/A",
           "Poster": "https://m.media-amazon.com/images/I/71xby-zAr7L._AC_SY679_.jpg",
           "Metascore": "N/A",
-          "imdbRating": "N/A",
+          "imdbRating": "7.3",
           "imdbVotes": "N/A",
           "imdbID": "tt3322314",
           "Type": "series",

@@ -14,7 +14,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<MovieTable />} />
-          <Route path="/movie-item/:id" element={<MoviesDatails/>} />
+          <Route path="/movie-item/:id" element={<MoviesDatails />} />
         </Routes>
       </Router>
     </div>

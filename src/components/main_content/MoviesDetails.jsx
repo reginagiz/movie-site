@@ -1,42 +1,67 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import data from '../../films.json';
 import MovieCarousel from './MovieCarousel';
 import st from './MovieDetails.module.css';
+import { Spin } from 'antd';
 
 const MoviesDatails = () => {
+  // const params = useParams();
+  // const movieId = params.id;
+  // const result = data.movies.filter((movie) => movie.id === Number(movieId))[0];
+  const [movie, setMovie] = useState({});
+  const [loading, setLoading] = useState(false);
   const params = useParams();
-  const movieId = params.id;
-  const result = data.movies.filter((movie) => movie.id === Number(movieId))[0];
+
+  async function getById(id) {
+    setLoading(true);
+    const response = await axios.get('http://localhost:5000/api/movies/' + id);
+    setMovie(response.data);
+    setLoading(false);
+  }
+  useEffect(() => {
+    getById(params.id);
+  }, []);
 
   return (
-    <div className={st.details}>
-      <div className={st.general}>
-        <h1>
-          {result.Title} ({result.Year})
-        </h1>
-        <div>Rated:{result.Rated}</div>
-        <div className={st.poster}>
-          <img src={result.Poster} alt="Poster" />
+    <>
+      {loading ? (
+        <div className={st.spin}>
+          <Spin size="large" />
         </div>
-      </div>
-      <div className={st.about}>
-        <h2>About the film</h2>
-        <div>imdbRating:&nbsp;{result.imdbRating}</div>
-        <div>Released:&nbsp;{result.Released}</div>
-        <div>Country:&nbsp;{result.Country}</div>
-        <div>Genre:&nbsp;{result.Genre}</div>
-        <div>Director:&nbsp;{result.Director}</div>
-        <div>Writer:&nbsp;{result.Writer}</div>
-        <div>Actors:&nbsp;{result.Actors}</div>
-        <div>Runtime:&nbsp;{result.Runtime}</div>
-        <div>Plot:&nbsp;{result.Plot}</div>
-      </div>
-      <div>
-      <h2 style={{marginTop:'40px'}}>Stills from the movie &nbsp;{result.Title}</h2>
-      <MovieCarousel movie={result} />
-      </div>
-    </div>
+      ) : (
+        <div className={st.details}>
+          <div className={st.general}>
+            <h1>
+              {movie.Title} ({movie.Year})
+            </h1>
+            <div>Rated:{movie.Rated}</div>
+            <div className={st.poster}>
+              <img src={movie.Poster} alt="Poster" />
+            </div>
+          </div>
+          <div className={st.about}>
+            <h2>About the film</h2>
+            <div>imdbRating:&nbsp;{movie.imdbRating}</div>
+            <div>Released:&nbsp;{movie.Released}</div>
+            <div>Country:&nbsp;{movie.Country}</div>
+            <div>Genre:&nbsp;{movie.Genre}</div>
+            <div>Director:&nbsp;{movie.Director}</div>
+            <div>Writer:&nbsp;{movie.Writer}</div>
+            <div>Actors:&nbsp;{movie.Actors}</div>
+            <div>Runtime:&nbsp;{movie.Runtime}</div>
+            <div>Plot:&nbsp;{movie.Plot}</div>
+          </div>
+          <div>
+            <h2 style={{ marginTop: '40px' }}>
+              Stills from the movie &nbsp;{movie.Title}
+            </h2>
+            <MovieCarousel movie={movie.Images} />
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

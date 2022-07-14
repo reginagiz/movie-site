@@ -3,6 +3,7 @@ import { Carousel } from 'antd';
 import MovieImage from './MovieImage';
 
 const MovieCarousel = ({ movie }) => {
+  console.log(movie);
   return (
     <Carousel
       autoplay
@@ -12,7 +13,7 @@ const MovieCarousel = ({ movie }) => {
         marginTop: '30px',
       }}
     >
-      {movie.Images.map((image) => (
+      {movie?.map((image) => (
         <MovieImage image={image} />
       ))}
     </Carousel>

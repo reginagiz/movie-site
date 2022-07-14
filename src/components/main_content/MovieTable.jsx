@@ -1,10 +1,27 @@
 import React from 'react';
 import data from '../../films.json';
 import { Table, Button } from 'antd';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const MovieTable = () => {
-  const dataSource = data.movies;
+  //const dataSource = data.movies;
+  const router = useNavigate();
+  const [movies, setMovies] = useState([]);
+
+  async function fetchData() {
+    const data = await axios
+      .get('http://localhost:5000/api/movies')
+      .then((res) => res.data);
+    setMovies(data);
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   const columns = [
     {
       title: 'Poster',
@@ -105,16 +122,19 @@ const MovieTable = () => {
     },
     {
       title: 'Movie Details',
-      dataIndex: 'id',
-      key: 'id',
-      render: (id) => (
-        <NavLink to={`/movie-item/${id}`}>
-          <Button type="primary">See more</Button>
-        </NavLink>
+      dataIndex: '_id',
+      key: '_id',
+      render: (_id) => (
+        // <NavLink to={`/movie-item/${id}`}>
+        //   <Button type="primary">See more</Button>
+        // </NavLink>
+        <Button onClick={() => router(`/movie-item/${_id}`)} type="primary">
+          See more
+        </Button>
       ),
     },
   ];
-  return <Table dataSource={dataSource} columns={columns} />;
+  return <Table dataSource={movies} columns={columns} />;
 };
 
 export default MovieTable;

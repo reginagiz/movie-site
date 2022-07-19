@@ -1,32 +1,25 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import data from '../../films.json';
 import MovieCarousel from './MovieCarousel';
 import st from './MovieDetails.module.css';
 import { Spin } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMovieDetails } from '../../store/movie_details';
 
 const MoviesDatails = () => {
-  // const params = useParams();
-  // const movieId = params.id;
-  // const result = data.movies.filter((movie) => movie.id === Number(movieId))[0];
-  const [movie, setMovie] = useState({});
-  const [loading, setLoading] = useState(false);
   const params = useParams();
 
-  async function getById(id) {
-    setLoading(true);
-    const response = await axios.get('http://localhost:5000/api/movies/' + id);
-    setMovie(response.data);
-    setLoading(false);
-  }
+  const dispatch = useDispatch();
+  const movie = useSelector((state) => state.movie_details.data);
+  const loading = useSelector((state) => state.movie_details.isLoading);
+
   useEffect(() => {
-    getById(params.id);
+    dispatch(fetchMovieDetails(params.id));
   }, []);
 
   return (
     <>
-      {loading ? (
+      {loading || !movie ? (
         <div className={st.spin}>
           <Spin size="large" />
         </div>
@@ -43,8 +36,9 @@ const MoviesDatails = () => {
           </div>
           <div className={st.about}>
             <h2>About the film</h2>
-            <div>imdbRating:&nbsp;{movie.imdbRating}</div>
             <div>Released:&nbsp;{movie.Released}</div>
+            <div>imdbRating:&nbsp;{movie.imdbRating}</div>
+            <div>Awards:&nbsp;{movie.Awards}</div>
             <div>Country:&nbsp;{movie.Country}</div>
             <div>Genre:&nbsp;{movie.Genre}</div>
             <div>Director:&nbsp;{movie.Director}</div>

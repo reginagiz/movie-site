@@ -3,7 +3,6 @@ import { Carousel } from 'antd';
 import MovieImage from './MovieImage';
 
 const MovieCarousel = ({ movie }) => {
-  console.log(movie);
   return (
     <Carousel
       autoplay

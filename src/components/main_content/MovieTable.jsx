@@ -1,25 +1,18 @@
 import React from 'react';
-import data from '../../films.json';
-import { Table, Button } from 'antd';
-import { NavLink, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { Table, Button, Spin } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { useState } from 'react';
+import { fetchMovies } from '../../store/movies';
+import { useDispatch, useSelector } from 'react-redux';
 
 const MovieTable = () => {
-  //const dataSource = data.movies;
   const router = useNavigate();
-  const [movies, setMovies] = useState([]);
-
-  async function fetchData() {
-    const data = await axios
-      .get('http://localhost:5000/api/movies')
-      .then((res) => res.data);
-    setMovies(data);
-  }
+  const dispatch = useDispatch();
+  const movies = useSelector((state) => state.movies.data);
+  const loading = useSelector((state) => state.movies.isLoading);
 
   useEffect(() => {
-    fetchData();
+    dispatch(fetchMovies);
   }, []);
 
   const columns = [
@@ -125,16 +118,21 @@ const MovieTable = () => {
       dataIndex: '_id',
       key: '_id',
       render: (_id) => (
-        // <NavLink to={`/movie-item/${id}`}>
-        //   <Button type="primary">See more</Button>
-        // </NavLink>
         <Button onClick={() => router(`/movie-item/${_id}`)} type="primary">
           See more
         </Button>
       ),
     },
   ];
-  return <Table dataSource={movies} columns={columns} />;
+  return (
+    <>
+      {loading || !movies ? (
+        <Spin size="large" />
+      ) : (
+        <Table dataSource={movies} columns={columns} />
+      )}
+    </>
+  );
 };
 
 export default MovieTable;

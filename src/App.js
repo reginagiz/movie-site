@@ -6,6 +6,7 @@ import MovieTable from './components/main_content/MovieTable';
 import 'antd/dist/antd.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MoviesDatails from './components/main_content/MoviesDetails';
+
 function App() {
   return (
     <div className="app-wrapper">

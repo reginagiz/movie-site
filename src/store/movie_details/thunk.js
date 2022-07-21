@@ -12,3 +12,4 @@ export const fetchMovieDetails = (id) => async (dispatch, getState) => {
     dispatch(fetchError());
   }
 };
+

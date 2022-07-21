@@ -2,6 +2,7 @@ import React from 'react';
 import st from './Header.module.css';
 import logo from '../logo.png';
 import { useNavigate } from 'react-router-dom';
+import MovieModal from '../main_content/movie_modal/MovieModal';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ const Header = () => {
       <div>
           <h2 className={st.title}>Movies</h2>
         </div>
+        <div><MovieModal/></div>
     </div>
   );
 };

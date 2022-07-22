@@ -8,14 +8,28 @@ const MovieModal = () => {
   const showModal = () => {
     setIsModalVisible(true);
   };
-  
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
 
   return (
     <>
       <Button type="primary" onClick={showModal}>
         Add movie
       </Button>
-      <Modal title="Movie form" visible={isModalVisible} footer={null} width ={800} closable={true} >
+      <Modal
+        title="Movie form"
+        visible={isModalVisible}
+        // footer={null}
+        width={800}
+        onOk={handleOk}
+        onCancel={handleCancel}
+        cancelText = 'Close'
+      >
         <MovieForm />
       </Modal>
     </>

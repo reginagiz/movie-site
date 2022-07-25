@@ -1,4 +1,4 @@
-import { Form, Input, Select, Upload, Button, Cascader } from 'antd';
+import { Form, Input, Select, Upload, Button, InputNumber } from 'antd';
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
@@ -8,30 +8,20 @@ const MovieForm = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
   const onFinish = (values) => {
-    dispatch(createMovie(values));
+    return dispatch(
+      createMovie({
+        ...values,
+        Genre: values.Genre.join(),
+        Runtime: values.Runtime + ' min',
+      })
+    );
   };
   const onReset = () => {
     form.resetFields();
   };
   const { TextArea } = Input;
+  const { Option } = Select;
 
-//   const options = [
-//     {
-//       label: 'Light',
-//       value: 'light',
-//     },
-//     {
-//       label: 'Bamboo',
-//       value: 'bamboo',
-//     },
-//     {
-//       label: 'Bamboo',
-//       value: 'bamboo',
-//     },
-//   ];
-//   const onChange = (value) => {
-//     console.log(value);
-//   };
   return (
     <Form
       form={form}
@@ -187,25 +177,37 @@ const MovieForm = () => {
         <Input />
       </Form.Item>
       <Form.Item
-        label="Genre"
         name="Genre"
+        label="Genre"
         rules={[
           {
             required: true,
             message: 'Missing area',
+            type: 'array',
+            maxTagCount: 'responsive',
           },
         ]}
       >
-        {/* <Cascader
-          style={{
-            width: '100%',
-          }}
-          options={options}
-          onChange={onChange}
-          multiple
+        <Select
+          mode="multiple"
+          placeholder="Please select genre"
           maxTagCount="responsive"
-        /> */}
-        <Input/>
+        >
+          <Option value="Drama">Drama</Option>
+          <Option value="Comedy">Comedy</Option>
+          <Option value="Action">Action</Option>
+          <Option value="Fantasy">Fantasy</Option>
+          <Option value="Horror">Horror</Option>
+          <Option value="Romance">Romance</Option>
+          <Option value="Western">Western</Option>
+          <Option value="Thriller">Thriller</Option>
+          <Option value="Sci-Fi">Sci-Fi</Option>
+          <Option value="Crime">Crime</Option>
+          <Option value="Musicals">Musicals</Option>
+          <Option value="Melodramas">Melodramas</Option>
+          <Option value="Sports">Sports</Option>
+          <Option value="War">War</Option>
+        </Select>
       </Form.Item>
       <Form.Item
         label="Director"
@@ -253,7 +255,12 @@ const MovieForm = () => {
           },
         ]}
       >
-        <Input placeholder="(min)" />
+        <InputNumber
+          defaultValue={100}
+          min={20}
+          max={400}
+          formatter={(value) => `${value} min`}
+        />
       </Form.Item>
       <Form.Item
         label="Plot"

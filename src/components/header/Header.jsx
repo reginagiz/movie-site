@@ -18,7 +18,7 @@ const Header = () => {
       <div>
           <h2 className={st.title}>Movies</h2>
         </div>
-        <div><MovieModal/></div>
+        {/* <div><MovieModal/></div> */}
     </div>
   );
 };

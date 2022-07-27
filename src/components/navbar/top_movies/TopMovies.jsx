@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { fetchMovies } from '../../../store/movies';
 import { useDispatch, useSelector } from 'react-redux';
-import TopMovie from './TopMovie';
+import TopMovie from '../top_movie/TopMovie';
 import { Spin } from 'antd';
 import st from './TopMovies.module.css';
 

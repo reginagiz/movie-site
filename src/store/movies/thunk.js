@@ -7,7 +7,9 @@ export const fetchMovies = async (dispatch, getState) => {
     const data = await axios
       .get('http://localhost:5000/api/movies')
       .then((res) => res.data);
-    dispatch(fetchComplete(data));
+    dispatch(
+      fetchComplete(data.map((item, index) => ({ ...item, key: index })))
+    );
   } catch {
     dispatch(fetchError());
   }

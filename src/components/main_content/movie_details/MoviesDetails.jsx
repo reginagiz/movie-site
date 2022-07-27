@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import MovieCarousel from './MovieCarousel';
+import MovieCarousel from '../movie_carousel/MovieCarousel';
 import st from './MovieDetails.module.css';
 import { Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMovieDetails } from '../../store/movie_details';
+import { fetchMovieDetails } from '../../../store/movie_details';
+import { deleteMovie } from '../../../store/movie_delete';
+import { Button, Popconfirm } from 'antd';
 
 const MoviesDatails = () => {
   const params = useParams();
@@ -34,8 +36,16 @@ const MoviesDatails = () => {
               <img src={movie.Poster} alt="Poster" />
             </div>
           </div>
+          <div className={st.delete}>
+            <Popconfirm
+              title="Sure to delete?"
+              onConfirm={() => dispatch(deleteMovie(params.id))}
+            >
+              <Button type="primary">Delete {movie.Type}</Button>
+            </Popconfirm>
+          </div>
           <div className={st.about}>
-            <h2>About the film</h2>
+            <h2>About the {movie.Type}</h2>
             <div>Released:&nbsp;{movie.Released}</div>
             <div>imdbRating:&nbsp;{movie.imdbRating}</div>
             <div>Awards:&nbsp;{movie.Awards}</div>

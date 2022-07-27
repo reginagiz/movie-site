@@ -24,11 +24,11 @@ const MovieModal = () => {
       <Modal
         title="Movie form"
         visible={isModalVisible}
-        // footer={null}
+        footer={null}
         width={800}
         onOk={handleOk}
         onCancel={handleCancel}
-        cancelText = 'Close'
+        cancelText="Close"
       >
         <MovieForm />
       </Modal>

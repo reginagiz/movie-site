@@ -1,6 +1,6 @@
 import React from 'react';
 import st from './navbar.module.css';
-import TopMovies from '../main_content/TopMovies/TopMovies';
+import TopMovies from './top_movies/TopMovies';
 
 const Navbar = () => {
   return (

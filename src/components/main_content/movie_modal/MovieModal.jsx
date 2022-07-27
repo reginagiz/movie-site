@@ -1,6 +1,6 @@
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
-import MovieForm from '../movie_form/MovieForm';
+import MovieForm from '../add_movie_form/MovieForm';
 
 const MovieModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);

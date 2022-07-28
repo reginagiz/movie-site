@@ -15,16 +15,28 @@
     justify-content: center;
     margin-top: 95px;
     margin-bottom: 100px;
-    margin-left: -420px;
+    margin-left: -430px;
    
+}
+.edit_form{
+    width: 430px;
 }
 .about div{
     margin-bottom: 10px;
 }
 .delete{
-    margin-left: 360px;
+    margin-left: 220px;
+    margin-top: 5px;   
+}
+.edit{
+    margin-left: 15px;
     margin-top: 5px;
 }
+.save{
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
 
 .poster{
     width: 400px;

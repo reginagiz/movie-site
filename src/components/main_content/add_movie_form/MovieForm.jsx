@@ -1,4 +1,13 @@
-import { Form, Input, Select, Upload, Button, InputNumber } from 'antd';
+import {
+  Form,
+  Input,
+  Select,
+  Upload,
+  Button,
+  InputNumber,
+  DatePicker,
+  Space,
+} from 'antd';
 import React from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
@@ -21,6 +30,9 @@ const MovieForm = () => {
   };
   const { TextArea } = Input;
   const { Option } = Select;
+  const onChange = (date, dateString) => {
+    console.log(date, dateString);
+  };
 
   return (
     <Form
@@ -57,7 +69,7 @@ const MovieForm = () => {
           },
         ]}
       >
-        <Input />
+         <Input />
       </Form.Item>
       <Form.Item label="Poster" valuePropName="fileList">
         <p style={{ marginTop: 5 }}>please upload one picture</p>

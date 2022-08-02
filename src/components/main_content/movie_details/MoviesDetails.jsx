@@ -37,7 +37,9 @@ const MoviesDatails = () => {
 
   const handleSave = () => {
     dispatch(updateMovie(newMovie));
+    seIsEdited(false);
   };
+  
 
   const { TextArea } = Input;
 
@@ -67,10 +69,10 @@ const MoviesDatails = () => {
               Delete {movie.Type}
             </Button>
           </Popconfirm>
-          <Button className={st.edit} onClick={handleEdit}>
+          <Button className={st.edit} type="primary" onClick={handleEdit}>
             Edit
           </Button>
-          <Button className={st.save} onClick={handleSave}>
+          <Button className={st.save} disabled={!isEdited} onClick={handleSave}>
             Save
           </Button>
 

@@ -1,14 +1,5 @@
-import {
-  Form,
-  Input,
-  Select,
-  Upload,
-  Button,
-  InputNumber,
-  DatePicker,
-  Space,
-} from 'antd';
-import React from 'react';
+import { Form, Input, Select, Upload, Button, InputNumber } from 'antd';
+import React, { useState } from 'react';
 import { PlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { createMovie } from '../../../store/movie_create';
@@ -16,12 +7,18 @@ import { createMovie } from '../../../store/movie_create';
 const MovieForm = () => {
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const [poster, setPoster] = useState();
+  const [stills, setStills] = useState([]);
+
   const onFinish = (values) => {
+    console.log(values);
     return dispatch(
       createMovie({
         ...values,
         Genre: values.Genre.join(),
         Runtime: values.Runtime + ' min',
+        Poster: poster,
+        Stills: stills,
       })
     );
   };
@@ -30,8 +27,18 @@ const MovieForm = () => {
   };
   const { TextArea } = Input;
   const { Option } = Select;
-  const onChange = (date, dateString) => {
-    console.log(date, dateString);
+
+  const handlePosterChange = (event) => {
+    if (event.file.status === 'done') {
+      setPoster(event.fileList[0].response);
+    }
+  };
+
+  const handleStillsChange = (event) => {
+    if (event.file.status === 'done') {
+      console.log(event);
+      setStills(event.fileList.map((file) => file.response));
+    }
   };
 
   return (
@@ -69,11 +76,17 @@ const MovieForm = () => {
           },
         ]}
       >
-         <Input />
+        <Input />
       </Form.Item>
-      <Form.Item label="Poster" valuePropName="fileList">
+      <Form.Item label="Poster" name="Poster" valuePropName="fileList">
         <p style={{ marginTop: 5 }}>please upload one picture</p>
-        <Upload action="/upload.do" listType="picture-card">
+        <Upload
+          action="http://localhost:5000/api/upload"
+          listType="picture-card"
+          onChange={handlePosterChange}
+          accept="image/*"
+          maxCount={1}
+        >
           <div>
             <PlusOutlined />
             <div
@@ -291,9 +304,15 @@ const MovieForm = () => {
           placeholder="Please describe the main plot of the film in two to four sentences."
         />
       </Form.Item>
-      <Form.Item label="Stills" valuePropName="fileList">
-        <p style={{ marginTop: 5 }}>please upload three - five picture</p>
-        <Upload action="/upload.do" listType="picture-card">
+      <Form.Item label="Stills" name="Stills" valuePropName="fileList">
+        <p style={{ marginTop: 5 }}>please upload three - six picture</p>
+        <Upload
+          action="http://localhost:5000/api/upload"
+          listType="picture-card"
+          accept="image/*"
+          maxCount={6}
+          onChange={handleStillsChange}
+        >
           <div>
             <PlusOutlined />
             <div

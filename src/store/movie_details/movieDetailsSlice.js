@@ -18,9 +18,13 @@ export const movieDetailsSlice = createSlice({
     fetchError: (state) => {
       state.isError = true;
     },
+    updateDetails: (state, action) => {
+      state.data = action.payload;
+    },
   },
 });
 
-export const { fetchStart, fetchComplete, fetchError } = movieDetailsSlice.actions;
+export const { fetchStart, fetchComplete, fetchError, updateDetails } =
+  movieDetailsSlice.actions;
 
 export default movieDetailsSlice.reducer;

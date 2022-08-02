@@ -11,7 +11,7 @@ export const createMovie = (movie) => async (dispatch, getState) => {
     dispatch(createComplete(data));
     notification.open({
       message: 'Success!',
-      description:'Movie added!',
+      description: 'Movie added!',
       className: 'custom-class',
       style: {
         width: 600,

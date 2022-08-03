@@ -1,4 +1,5 @@
 import React from 'react';
+import getImageUrl from '../../../utils/getImageUrl';
 
 const contentStyle = {
   height: '500px',
@@ -11,7 +12,7 @@ const MovieImage = ({ image }) => (
   <div>
     <h3 style={contentStyle}>
       <img
-        src={image}
+        src={getImageUrl(image)} alt="Still" 
         style={{ objectFit: 'cover', width: '100%', height: '100%' }}
       />
     </h3>

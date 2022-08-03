@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Button } from 'antd';
 import st from './TopMovie.module.css';
+import getImageUrl from '../../../utils/getImageUrl';
 
 const TopMovie = ({ movie }) => {
   const router = useNavigate();
@@ -10,7 +11,7 @@ const TopMovie = ({ movie }) => {
   return (
     <div className={st.movie}>
       <div className={st.poster}>
-        <img src={movie.Poster} alt="Poster" />
+        <img src={getImageUrl(movie.Poster)} alt="Poster" />
       </div>
       <div>
         {movie.Title} ({movie.Year})<div>{movie.imdbRating}</div>

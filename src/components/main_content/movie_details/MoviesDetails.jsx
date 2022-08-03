@@ -9,6 +9,7 @@ import { deleteMovie } from '../../../store/movie_delete';
 import { Button, Popconfirm } from 'antd';
 import { Input } from 'antd';
 import { updateMovie } from '../../../store/movie_update';
+import getImageUrl from '../../../utils/getImageUrl';
 
 const MoviesDatails = () => {
   const params = useParams();
@@ -39,7 +40,6 @@ const MoviesDatails = () => {
     dispatch(updateMovie(newMovie));
     seIsEdited(false);
   };
-  
 
   const { TextArea } = Input;
 
@@ -57,7 +57,7 @@ const MoviesDatails = () => {
             </h1>
             <div>Rated:{movie.Rated}</div>
             <div className={st.poster}>
-              <img src={movie.Poster} alt="Poster" />
+              <img src={getImageUrl(movie.Poster)} alt="Poster" />
             </div>
           </div>
 

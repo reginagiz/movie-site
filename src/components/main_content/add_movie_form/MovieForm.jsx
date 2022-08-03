@@ -18,7 +18,7 @@ const MovieForm = () => {
         Genre: values.Genre.join(),
         Runtime: values.Runtime + ' min',
         Poster: poster,
-        Stills: stills,
+        Images: stills,
       })
     );
   };
@@ -36,7 +36,6 @@ const MovieForm = () => {
 
   const handleStillsChange = (event) => {
     if (event.file.status === 'done') {
-      console.log(event);
       setStills(event.fileList.map((file) => file.response));
     }
   };

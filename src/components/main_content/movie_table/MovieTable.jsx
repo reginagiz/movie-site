@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { fetchMovies } from '../../../store/movies';
 import { useDispatch, useSelector } from 'react-redux';
 import MovieModal from '../movie_modal/MovieModal';
+import getImageUrl from '../../../utils/getImageUrl';
 
 const MovieTable = () => {
   const router = useNavigate();
@@ -38,7 +39,7 @@ const MovieTable = () => {
         <div style={{ width: 80, height: 90 }}>
           <img
             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-            src={link}
+            src={getImageUrl(link)} 
             alt="Poster"
           />
         </div>
@@ -160,5 +161,6 @@ const MovieTable = () => {
     </>
   );
 };
+
 
 export default MovieTable;

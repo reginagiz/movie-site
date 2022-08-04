@@ -11,7 +11,6 @@ const MovieForm = () => {
   const [stills, setStills] = useState([]);
 
   const onFinish = (values) => {
-    console.log(values);
     return dispatch(
       createMovie({
         ...values,

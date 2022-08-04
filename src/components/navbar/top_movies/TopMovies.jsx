@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import TopMovie from '../top_movie/TopMovie';
 import { Spin } from 'antd';
 import st from './TopMovies.module.css';
+import { CrownOutlined } from '@ant-design/icons';
+
 
 const TopMovies = () => {
   const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const TopMovies = () => {
         </div>
       ) : (
         <div className={st.movies}>
-          <h3 className={st.title}>Top movies and series</h3>
+          <h3 className={st.title}>Top movies and series <CrownOutlined /></h3>
           {topMovies?.map((movie) => (
             <TopMovie movie={movie} />
           ))}

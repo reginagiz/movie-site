@@ -1,3 +1,6 @@
+.movie{
+    margin-top: 25px;
+}
 .details{
     display: flex;
     flex-direction: row;
@@ -8,36 +11,25 @@
 .general{
     box-sizing: border-box;
     max-width: 50%; 
+    margin-top: -40px;
 }
 .about{
     box-sizing: border-box;
     max-width: 39%;
     justify-content: center;
-    margin-top: 95px;
-    margin-bottom: 100px;
-    margin-left: -430px;
-   
+    margin-top: 55px;
+    margin-left: 50px;
 }
-.edit_form{
-    width: 430px;
-}
+
 .about div{
     margin-bottom: 10px;
 }
-.delete{
-    margin-left: 220px;
-    margin-top: 5px;   
+.buttons{
+    margin-left: 660px;
 }
 .edit{
-    margin-left: 15px;
-    margin-top: 5px;
+    margin-right: 15px;
 }
-.save{
-    margin-left: 15px;
-    margin-top: 5px;
-}
-
-
 .poster{
     width: 400px;
     height: 600px;

@@ -21,6 +21,6 @@ export const moviesSlice = createSlice({
   },
 });
 
-export const { fetchStart, fetchComplete, fetchError } = moviesSlice.actions;
+export const { fetchStart, fetchComplete, fetchError} = moviesSlice.actions;
 
 export default moviesSlice.reducer;

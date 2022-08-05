@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { notification } from 'antd';
 import { deleteStart, deleteComplete, deleteError } from './movieDeleteSlice';
+import { fetchMovies } from '../movies';
 
 export const deleteMovie = (id) => async (dispatch, getState) => {
   try {
@@ -17,6 +18,7 @@ export const deleteMovie = (id) => async (dispatch, getState) => {
         width: 600,
       },
     });
+    dispatch(fetchMovies);
   } catch {
     dispatch(deleteError());
   }

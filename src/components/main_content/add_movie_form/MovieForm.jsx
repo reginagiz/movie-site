@@ -76,7 +76,11 @@ const MovieForm = () => {
       >
         <Input />
       </Form.Item>
-      <Form.Item label="Poster" name="Poster" valuePropName="fileList">
+      <Form.Item
+        label="Poster"
+        name="Poster"
+        valuePropName="fileList"
+      >
         <p style={{ marginTop: 5 }}>please upload one picture</p>
         <Upload
           action="http://localhost:5000/api/upload"
@@ -219,6 +223,7 @@ const MovieForm = () => {
           <Option value="Drama">Drama</Option>
           <Option value="Comedy">Comedy</Option>
           <Option value="Action">Action</Option>
+          <Option value="Adventure">Adventure</Option>
           <Option value="Fantasy">Fantasy</Option>
           <Option value="Horror">Horror</Option>
           <Option value="Romance">Romance</Option>
@@ -302,7 +307,11 @@ const MovieForm = () => {
           placeholder="Please describe the main plot of the film in two to four sentences."
         />
       </Form.Item>
-      <Form.Item label="Stills" name="Stills" valuePropName="fileList">
+      <Form.Item
+        label="Stills"
+        name="Stills"
+        valuePropName="fileList"
+      >
         <p style={{ marginTop: 5 }}>please upload three - six picture</p>
         <Upload
           action="http://localhost:5000/api/upload"

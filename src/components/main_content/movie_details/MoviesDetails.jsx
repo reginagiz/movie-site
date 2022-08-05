@@ -20,7 +20,7 @@ const MoviesDatails = () => {
 
   useEffect(() => {
     dispatch(fetchMovieDetails(params.id));
-  }, []);
+  }, [params.id]);
 
   const handleEdit = () => {
     isEdited ? seIsEdited(false) : seIsEdited(true);
@@ -50,9 +50,9 @@ const MoviesDatails = () => {
           ) : (
             <div className={st.details}>
               <div className={st.general}>
-                <h1>
+                <h2>
                   {movie.Title} ({movie.Year})
-                </h1>
+                </h2>
                 <div>Rated:{movie.Rated}</div>
                 <div className={st.poster}>
                   <img src={getImageUrl(movie.Poster)} alt="Poster" />

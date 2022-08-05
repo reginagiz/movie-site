@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { notification } from 'antd';
 import { createStart, createComplete, createError } from './movieCreateSlice';
+import { fetchMovies } from '../movies';
 
 export const createMovie = (movie) => async (dispatch, getState) => {
   try {
@@ -17,6 +18,7 @@ export const createMovie = (movie) => async (dispatch, getState) => {
         width: 600,
       },
     });
+    dispatch(fetchMovies);
   } catch {
     dispatch(createError());
   }

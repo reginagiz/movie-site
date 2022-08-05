@@ -10,14 +10,14 @@
 }
 .general{
     box-sizing: border-box;
-    max-width: 50%; 
+    max-width: 35%; 
     margin-top: -40px;
 }
 .about{
     box-sizing: border-box;
     max-width: 39%;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 40px;
     margin-left: 50px;
 }
 

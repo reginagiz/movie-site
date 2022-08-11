@@ -1,5 +1,7 @@
 const getImageUrl = (image) => {
-  return image.includes('https://') ? image : `http://localhost:5000/${image}`;
+  return image.includes('https://')
+    ? image
+    : `https://movie-library-test.herokuapp.com/${image}`;
 };
 
 export default getImageUrl;

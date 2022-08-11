@@ -7,7 +7,7 @@ export const updateMovie = (newMovie) => async (dispatch, getState) => {
   try {
     dispatch(updateStart());
     const data = await axios
-      .put('http://localhost:5000/api/movies', newMovie)
+      .put('/api/movies', newMovie)
       .then((res) => res.data);
     dispatch(updateComplete(data));
     dispatch(updateDetails(data));

@@ -5,7 +5,7 @@ export const fetchMovies = async (dispatch, getState) => {
   try {
     dispatch(fetchStart());
     const data = await axios
-      .get('http://localhost:5000/api/movies')
+      .get('/api/movies')
       .then((res) => res.data);
     dispatch(fetchComplete(data))
   } catch {

@@ -7,7 +7,7 @@ export const deleteMovie = (id) => async (dispatch, getState) => {
   try {
     dispatch(deleteStart());
     const data = await axios
-      .delete('http://localhost:5000/api/movies/' + id)
+      .delete('/api/movies/' + id)
       .then((res) => res.data);
     dispatch(deleteComplete(data));
     notification.open({

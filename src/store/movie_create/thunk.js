@@ -7,7 +7,7 @@ export const createMovie = (movie) => async (dispatch, getState) => {
   try {
     dispatch(createStart());
     const data = await axios
-      .post('http://localhost:5000/api/movies', { data: movie })
+      .post('https://movie-library-test.herokuapp.com/api/movies', { data: movie })
       .then((res) => res.data);
     dispatch(createComplete(data));
     notification.open({

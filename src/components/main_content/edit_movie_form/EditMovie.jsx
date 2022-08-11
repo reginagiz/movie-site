@@ -71,7 +71,7 @@ const EditMovie = ({ movie, onSave }) => {
         <div>
           Poster:
           <Upload
-            action="http://localhost:5000/api/upload"
+            action="/api/upload"
             listType="picture-card"
             onChange={handlePosterChange}
             accept="image/*"
@@ -160,7 +160,7 @@ const EditMovie = ({ movie, onSave }) => {
         <div>
           Stills:
           <Upload
-            action="http://localhost:5000/api/upload"
+            action="/api/upload"
             listType="picture-card"
             accept="image/*"
             maxCount={6}

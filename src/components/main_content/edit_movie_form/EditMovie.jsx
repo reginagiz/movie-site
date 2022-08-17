@@ -5,6 +5,7 @@ import { updateMovie } from '../../../store/movie_update';
 import { useDispatch } from 'react-redux';
 import getImageUrl from '../../../utils/getImageUrl';
 import st from './EditMovie.module.css';
+import Axios from 'axios';
 
 const EditMovie = ({ movie, onSave }) => {
   const dispatch = useDispatch();
@@ -19,17 +20,7 @@ const EditMovie = ({ movie, onSave }) => {
   const handleChange = (key) => (val) => {
     setNewMovie((prev) => ({ ...prev, [key]: val.target.value }));
   };
-  const handlePosterChange = (event) => {
-    if (event.file.status === 'done') {
-      setPoster(event.fileList[0].response);
-    }
-  };
 
-  const handleStillsChange = (event) => {
-    if (event.file.status === 'done') {
-      setStills(event.fileList.map((file) => file.response));
-    }
-  };
   const handleSave = () => {
     dispatch(
       updateMovie({
@@ -53,6 +44,34 @@ const EditMovie = ({ movie, onSave }) => {
     };
   });
 
+  const uploadPoster = (options) => {
+    const formData = new FormData();
+    formData.append('file', options.file);
+    formData.append('upload_preset', 'hstbuhbk');
+
+    Axios.post(
+      'https://api.cloudinary.com/v1_1/dbx6asvhz/image/upload',
+      formData
+    ).then((response) => {
+      options.onSuccess(response);
+      setPoster(response.data.secure_url);
+    });
+  };
+
+  const uploadStills = (options) => {
+    const formData = new FormData();
+    formData.append('file', options.file);
+    formData.append('upload_preset', 'hstbuhbk');
+
+    Axios.post(
+      'https://api.cloudinary.com/v1_1/dbx6asvhz/image/upload',
+      formData
+    ).then((response) => {
+      options.onSuccess(response);
+      setStills((prev) => [...prev, response.data.secure_url]);
+    });
+  };
+
   return (
     <div className={st.edit_form}>
       <div className={st.general}>
@@ -71,9 +90,9 @@ const EditMovie = ({ movie, onSave }) => {
         <div>
           Poster:
           <Upload
-            action="/api/upload"
+            type="file"
+            customRequest={uploadPoster}
             listType="picture-card"
-            onChange={handlePosterChange}
             accept="image/*"
             maxCount={1}
             defaultFileList={[
@@ -160,11 +179,11 @@ const EditMovie = ({ movie, onSave }) => {
         <div>
           Stills:
           <Upload
-            action="/api/upload"
+            type="file"
+            customRequest={uploadStills}
             listType="picture-card"
             accept="image/*"
             maxCount={6}
-            onChange={handleStillsChange}
             defaultFileList={images}
             multiple="true"
           >

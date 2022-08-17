@@ -2,12 +2,14 @@ import axios from 'axios';
 import { notification } from 'antd';
 import { createStart, createComplete, createError } from './movieCreateSlice';
 import { fetchMovies } from '../movies';
+import { buildUrl } from '../../utils/buildUrl';
 
 export const createMovie = (movie) => async (dispatch, getState) => {
   try {
     dispatch(createStart());
+    console.log()
     const data = await axios
-      .post('https://movie-library-test.herokuapp.com/api/movies', { data: movie })
+      .post(buildUrl('api/movies'), { data: movie })
       .then((res) => res.data);
     dispatch(createComplete(data));
     notification.open({

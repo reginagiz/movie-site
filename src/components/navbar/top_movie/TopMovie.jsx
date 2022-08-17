@@ -6,18 +6,17 @@ import getImageUrl from '../../../utils/getImageUrl';
 
 const TopMovie = ({ movie }) => {
   const router = useNavigate();
-  
- 
+
   return (
     <div className={st.movie}>
       <div className={st.poster}>
         <img src={getImageUrl(movie.Poster)} alt="Poster" />
       </div>
-      <div>
-        {movie.Title} ({movie.Year})<div>{movie.imdbRating}</div>
+      <div className={st.info}>
+        {movie.Title} <div className={st.rating}>{movie.imdbRating}</div>
       </div>
-      <Button onClick={() => router(`/movie-item/${movie._id}`)} type="primary"> 
-        See more
+      <Button onClick={() => router(`/movie-item/${movie._id}`)} type="primary">
+        More
       </Button>
     </div>
   );

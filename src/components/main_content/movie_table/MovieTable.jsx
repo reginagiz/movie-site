@@ -13,18 +13,6 @@ const MovieTable = () => {
   const movies = useSelector((state) => state.movies.data);
   const loading = useSelector((state) => state.movies.isLoading);
 
-  // const [selectedRowKeys, setSelectedRowKeys] = useState([]);
-
-  // const onSelectChange = (newSelectedRowKeys) => {
-  //   setSelectedRowKeys(newSelectedRowKeys);
-  // };
-  
-  // const rowSelection = {
-  //   selectedRowKeys,
-  //   onChange: onSelectChange,
-  // };
-  // const hasSelected = selectedRowKeys.length > 0;
-
   useEffect(() => {
     dispatch(fetchMovies);
   }, []);
@@ -151,9 +139,8 @@ const MovieTable = () => {
           <Table
             dataSource={movies}
             columns={columns}
-            // rowSelection={rowSelection}
             style={{
-              marginTop: 16,
+              marginTop: 16
             }}
           />
         </div>

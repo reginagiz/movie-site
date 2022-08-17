@@ -1,8 +1,9 @@
 import { Form, Input, Select, Upload, Button, InputNumber } from 'antd';
 import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
+import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { createMovie } from '../../../store/movie_create';
+import Axios from 'axios';
 
 const MovieForm = () => {
   const [form] = Form.useForm();
@@ -27,16 +28,45 @@ const MovieForm = () => {
   const { TextArea } = Input;
   const { Option } = Select;
 
-  const handlePosterChange = (event) => {
-    if (event.file.status === 'done') {
-      setPoster(event.fileList[0].response);
-    }
+  // const handlePosterChange = (event) => {
+  //   if (event.file.status === 'done') {
+  //     setPoster(event.fileList[0].response);
+  //   }
+  //   console.log(event);
+  // };
+
+  // const handleStillsChange = (event) => {
+  //   if (event.file.status === 'done') {
+  //     setStills(event.fileList.map((file) => file.response));
+  //   }
+  // };
+
+  const uploadPoster = (options) => {
+    const formData = new FormData();
+    formData.append('file', options.file);
+    formData.append('upload_preset', 'hstbuhbk');
+
+    Axios.post(
+      'https://api.cloudinary.com/v1_1/dbx6asvhz/image/upload',
+      formData
+    ).then((response) => {
+      options.onSuccess(response);
+      setPoster(response.data.secure_url);
+    });
   };
 
-  const handleStillsChange = (event) => {
-    if (event.file.status === 'done') {
-      setStills(event.fileList.map((file) => file.response));
-    }
+  const uploadStills = (options) => {
+    const formData = new FormData();
+    formData.append('file', options.file);
+    formData.append('upload_preset', 'hstbuhbk');
+
+    Axios.post(
+      'https://api.cloudinary.com/v1_1/dbx6asvhz/image/upload',
+      formData
+    ).then((response) => {
+      options.onSuccess(response);
+      setStills((prev) => [...prev, response.data.secure_url]);
+    });
   };
 
   return (
@@ -79,9 +109,9 @@ const MovieForm = () => {
       <Form.Item label="Poster" name="Poster" valuePropName="fileList">
         <p style={{ marginTop: 5 }}>please upload one picture</p>
         <Upload
-          action="/api/upload"
+          type="file"
+          customRequest={uploadPoster}
           listType="picture-card"
-          onChange={handlePosterChange}
           accept="image/*"
           maxCount={1}
         >
@@ -306,11 +336,12 @@ const MovieForm = () => {
       <Form.Item label="Stills" name="Stills" valuePropName="fileList">
         <p style={{ marginTop: 5 }}>please upload three - six picture</p>
         <Upload
-          action="/api/upload"
+          type="file"
+          customRequest={uploadStills}
           listType="picture-card"
           accept="image/*"
           maxCount={6}
-          onChange={handleStillsChange}
+          multiple="true"
         >
           <div>
             <PlusOutlined />

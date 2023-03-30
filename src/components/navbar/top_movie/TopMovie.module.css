@@ -1,28 +1,33 @@
-.movie{
+.movie {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     word-wrap: wrap;
     width: 80px;
-    margin-bottom: 37px; 
-    margin-top:20px; 
+    margin-bottom: 10px;
 }
-.poster{
+
+.poster {
     width: 80px;
-    height:90px;
+    height: 120px;
     margin-top: 25px;
 }
-.poster img{
+
+.poster img {
     object-fit: cover;
     width: 100%;
     height: 100%;
 }
-.rating{
+
+.rating {
     font-weight: bold;
 }
-.info{
+
+.info {
     text-align: center;
+    font-size: small;
 }
-.button{
-    text-align:end;
+
+.button {
+    text-align: end;
 }

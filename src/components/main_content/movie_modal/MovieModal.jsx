@@ -18,7 +18,7 @@ const MovieModal = () => {
 
   return (
     <>
-      <Button type="primary" onClick={showModal}>
+      <Button type="default" onClick={showModal}>
         Add movie
       </Button>
       <Modal

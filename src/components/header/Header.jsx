@@ -12,13 +12,17 @@ const Header = () => {
 
   return (
     <div className={st.header}>
+      <div >
+        <a onClick={navigateMovieTable}>
+          <img src={logo} className={st.logo} alt="logo"></img>
+        </a>
+      </div>
       <a onClick={navigateMovieTable}>
-        <img src={logo} className={st.logo} alt="logo"></img>    
+        <div className={st.title}>All movies</div>
       </a>
-      <div>
-          <h2 className={st.title}>Movies</h2>
-        </div>
-        {/* <div><MovieModal/></div> */}
+      <div className={st.modal}>
+        <MovieModal />
+      </div>
     </div>
   );
 };

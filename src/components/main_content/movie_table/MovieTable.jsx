@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Table, Button, Spin} from 'antd';
+import { Table, Button, Spin } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchMovies } from '../../../store/movies';
@@ -13,39 +13,59 @@ const MovieTable = () => {
   const movies = useSelector((state) => state.movies.data);
   const loading = useSelector((state) => state.movies.isLoading);
 
+  console.log(movies)
+
   useEffect(() => {
     dispatch(fetchMovies);
   }, []);
 
+  const movieTitle = (_id) => {
+    let result = movies.filter(movie => movie._id === _id)
+    return result[0].Title
+  }
+
 
   const columns = [
     {
-      title: 'Poster',
+      title: 'POSTER',
       dataIndex: 'Poster',
       key: 'Poster',
       render: (link) => (
-        <div style={{ width: 80, height: 90 }}>
+        <div style={{ width: 80, height: 120 }}>
           <img
             style={{ objectFit: 'cover', width: '100%', height: '100%' }}
-            src={getImageUrl(link)} 
+            src={getImageUrl(link)}
             alt="Poster"
           />
         </div>
       ),
+      width: '20%',
+
     },
     {
-      title: 'Title',
-      dataIndex: 'Title',
-      key: 'Title',
+      title: 'TITLE',
+      dataIndex: '_id',
+      key: '_id',
+      render: (_id) => (
+        <a onClick={() => router(`/movie-item/${_id}`)}>{movieTitle(_id)}</a>
+      ),
+      width: '20%',
     },
     {
-      title: 'Year',
+      title: 'YEAR',
       dataIndex: 'Year',
       key: 'Year',
       sorter: (a, b) => a.Year - b.Year,
     },
     {
-      title: 'Genre',
+      title: 'IMDB',
+      dataIndex: 'imdbRating',
+      key: 'imdbRating',
+      sorter: (a, b) => a.imdbRating - b.imdbRating,
+      width: '10%',
+    },
+    {
+      title: 'GENRE',
       dataIndex: 'Genre',
       key: 'Genre',
       filters: [
@@ -92,16 +112,10 @@ const MovieTable = () => {
       ],
       onFilter: (value, record) => record.Genre.includes(value),
       filterSearch: true,
-      width: '40%',
+      width: '20%',
     },
     {
-      title: 'imdb Rating',
-      dataIndex: 'imdbRating',
-      key: 'imdbRating',
-      sorter: (a, b) => a.imdbRating - b.imdbRating,
-    },
-    {
-      title: 'Type',
+      title: 'TYPE',
       dataIndex: 'Type',
       title: 'Type',
       key: 'Type',
@@ -116,26 +130,15 @@ const MovieTable = () => {
         },
       ],
       onFilter: (value, record) => record.Type.startsWith(value),
-      width: '40%',
-    },
-    {
-      title: 'Movie Details',
-      dataIndex: '_id',
-      key: '_id',
-      render: (_id) => (
-        <Button onClick={() => router(`/movie-item/${_id}`)} type="primary">
-          See more
-        </Button>
-      ),
-    },
+      width: '10%',
+    }
   ];
   return (
     <>
       {loading || !movies ? (
         <Spin size="large" />
       ) : (
-        <div>
-          <MovieModal />
+        <div >
           <Table
             dataSource={movies}
             columns={columns}

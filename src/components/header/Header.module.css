@@ -1,18 +1,27 @@
-.header{
+.header {
     grid-area: h;
-    background-color:#2b2b2b ;
+    background-color: inherit;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content:flex-start;
 }
 
-.logo{
-    width: 60px;
-    height: 70px;
-    margin-left: 100px;
-    
+.logo {
+    width: 100px;
+    height: 90px;
+    margin-left: 50px;
+    margin-bottom: 20px;
 }
-.title{
+
+.modal {
+    margin-top: 30px;
+    margin-right: 30px;
+}
+
+.title {
     text-transform: uppercase;
-    color:#d53e29;
+    font-size: 20px;
+    margin-top: 60px;
+    font-weight: bolder;
+    color: black;
 }

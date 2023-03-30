@@ -1,6 +1,6 @@
 import { Form, Input, Select, Upload, Button, InputNumber } from 'antd';
 import React, { useState } from 'react';
-import { PlusOutlined, LoadingOutlined } from '@ant-design/icons';
+import { PlusOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { createMovie } from '../../../store/movie_create';
 import Axios from 'axios';
@@ -27,19 +27,6 @@ const MovieForm = () => {
   };
   const { TextArea } = Input;
   const { Option } = Select;
-
-  // const handlePosterChange = (event) => {
-  //   if (event.file.status === 'done') {
-  //     setPoster(event.fileList[0].response);
-  //   }
-  //   console.log(event);
-  // };
-
-  // const handleStillsChange = (event) => {
-  //   if (event.file.status === 'done') {
-  //     setStills(event.fileList.map((file) => file.response));
-  //   }
-  // };
 
   const uploadPoster = (options) => {
     const formData = new FormData();

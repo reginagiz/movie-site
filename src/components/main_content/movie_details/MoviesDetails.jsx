@@ -60,16 +60,16 @@ const MoviesDatails = () => {
               </div>
               <div className={st.about}>
                 <h2>About the {movie.Type}</h2>
-                <div>Released:&nbsp;{movie.Released}</div>
-                <div>imdbRating:&nbsp;{movie.imdbRating}</div>
-                <div>Awards:&nbsp;{movie.Awards}</div>
-                <div>Country:&nbsp;{movie.Country}</div>
-                <div>Genre:&nbsp;{movie.Genre}</div>
-                <div>Director:&nbsp;{movie.Director}</div>
-                <div>Writer:&nbsp;{movie.Writer}</div>
-                <div>Actors:&nbsp;{movie.Actors}</div>
-                <div>Runtime:&nbsp;{movie.Runtime}</div>
-                <div>Plot:&nbsp;{movie.Plot}</div>
+                <div><b>Released:</b>&nbsp;{movie.Released}</div>
+                <div><b>imdbRating:</b>&nbsp;{movie.imdbRating}</div>
+                <div><b>Awards:</b>&nbsp;{movie.Awards}</div>
+                <div><b>Country:</b>&nbsp;{movie.Country}</div>
+                <div><b>Genre:</b>&nbsp;{movie.Genre}</div>
+                <div><b>Director:</b>&nbsp;{movie.Director}</div>
+                <div><b>Writer:</b>&nbsp;{movie.Writer}</div>
+                <div><b>Actors:</b>&nbsp;{movie.Actors}</div>
+                <div><b>Runtime:</b>&nbsp;{movie.Runtime}</div>
+                <div><b>Plot:</b>&nbsp;{movie.Plot}</div>
               </div>
               <div>
                 <h2 style={{ marginTop: '40px' }}>

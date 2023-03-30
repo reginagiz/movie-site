@@ -9,16 +9,16 @@ const TopMovie = ({ movie }) => {
 
   return (
     <div className={st.movie}>
-      <div className={st.poster}>
-        <img src={getImageUrl(movie.Poster)} alt="Poster" />
-      </div>
-      <div className={st.info}>
-        {movie.Title} <div className={st.rating}>{movie.imdbRating}</div>
-      </div>
-      <Button onClick={() => router(`/movie-item/${movie._id}`)} type="primary">
-        More
-      </Button>
-    </div>
+      <a onClick={() => router(`/movie-item/${movie._id}`)} type="primary">
+        <div className={st.poster}>
+          <img src={getImageUrl(movie.Poster)} alt="Poster" />
+        </div>
+        <div className={st.info}>
+          {movie.Title}
+          <div className={st.rating}>{movie.imdbRating}</div>
+        </div>
+      </a>
+    </div >
   );
 };
 

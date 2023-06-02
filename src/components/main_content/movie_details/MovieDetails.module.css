@@ -1,54 +1,62 @@
-.details {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    margin-left: 30px;
-    margin-top: -5px;
+.movie {
+  min-width: 100%;
 }
-
-.general {
-    box-sizing: border-box;
-    max-width: 35%;
-    margin-right: 20px;
+.movie_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  min-width: 320px;
+  padding: 1rem;
+  flex-direction: column;
+  overflow: hidden;
 }
-
-.about {
-    box-sizing: border-box;
-    max-width: 39%;
-    justify-content: center;
-    margin-left: 50px;
-    margin-top: 80px;
+.movie_container_details {
+  display: flex;
 }
-
-.about div {
-    margin-bottom: 10px;
+.poster_container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
 }
-
-.buttons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 30px;
+.poster_container img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
 }
-
+.movie_description {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+.movie_description div {
+  margin-bottom: 0.5rem;
+}
+.buttons_container {
+  align-self: flex-end;
+  margin-bottom: 1rem;
+}
 .edit {
-    margin-right: 15px;
+  margin-right: 1rem;
 }
-
-.poster {
-    width: 400px;
-    height: 600px;
-    margin-top: 20px;
+.movie_carousel {
+  margin-top: 2rem;
 }
-
-.poster img {
-    object-fit: cover;
+@media (width < 768px) {
+  .movie_container_details {
+    flex-direction: column;
+    align-items: center;
+  }
+  .poster_container {
     width: 100%;
-    height: 100%;
+  }
+  .movie_description {
+    width: 100%;
+    margin-left: 0;
+  }
 }
-
-.spin {
-    margin: 0 auto;
-    margin-top: 200px;
+@media (1024px <= width) {
+  .movie_container {
+    max-width: 1200px;
+  }
 }

@@ -1,6 +1,7 @@
-import { Button, Modal } from 'antd';
-import React, { useState } from 'react';
-import MovieForm from '../add_movie_form/MovieForm';
+import { Button, Modal } from "antd";
+import React, { useState } from "react";
+import MovieForm from "../add_movie_form/MovieForm";
+import { PlusOutlined } from "@ant-design/icons";
 
 const MovieModal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -18,14 +19,16 @@ const MovieModal = () => {
 
   return (
     <>
-      <Button type="default" onClick={showModal}>
-        Add movie
-      </Button>
+      <Button
+        type="default"
+        shape="circle"
+        onClick={showModal}
+        icon={<PlusOutlined />}
+      ></Button>
       <Modal
         title="Movie form"
         visible={isModalVisible}
         footer={null}
-        width={800}
         onOk={handleOk}
         onCancel={handleCancel}
         cancelText="Close"

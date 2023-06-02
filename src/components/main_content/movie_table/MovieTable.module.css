@@ -1,0 +1,35 @@
+.table {
+  min-width: 100%;
+}
+
+.table_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 320px;
+  padding: 1rem;
+}
+@media (width < 768px) {
+  .table_container {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 0;
+    overflow-x: scroll;
+    max-width: 24rem;
+  }
+  .table_container::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: #e6f4ff;
+    border-radius: 0.5rem;
+  }
+  .table_container::-webkit-scrollbar-thumb {
+    background: #1677ff;
+    border-radius: 0.5rem;
+  }
+}
+@media (1024px <= width) {
+  .table_container {
+    max-width: 1200px;
+  }
+}

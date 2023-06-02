@@ -1,4 +1,4 @@
-.app-wrapper {
+/* .app-wrapper {
     margin-top: 0;
     padding: 0;
     margin: 0 auto;
@@ -10,4 +10,26 @@
     grid-template-rows: 100px 1fr;
     grid-template-columns: 2fr 10fr;
     grid-gap: 20px;
+} */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  font-size: 18px;
+  min-height: 100vh;
+  min-width: 352px;
+}
+
+@media (768px <= width <= 1024px) {
+  .App {
+    font-size: 20px;
+  }
+}
+
+@media (1024px <= width) {
+  .App {
+    font-size: 22px;
+  }
 }

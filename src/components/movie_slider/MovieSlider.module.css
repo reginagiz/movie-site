@@ -1,0 +1,26 @@
+.slider {
+  min-width: 100%;
+}
+.slider_container {
+  margin: 0 auto;
+  padding: 1rem;
+}
+.raiting {
+  display: flex;
+  justify-content: center;
+}
+.raiting p {
+  margin-top: 0.5rem;
+}
+.cart_container:last-child {
+  margin-right: 0;
+}
+button {
+  border: none;
+  background-color: inherit;
+}
+@media (1024px <= width) {
+  .slider_container {
+    max-width: 1200px;
+  }
+}

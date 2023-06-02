@@ -7,7 +7,6 @@ import { buildUrl } from '../../utils/buildUrl';
 export const createMovie = (movie) => async (dispatch, getState) => {
   try {
     dispatch(createStart());
-    console.log()
     const data = await axios
       .post(buildUrl('api/movies'), { data: movie })
       .then((res) => res.data);

@@ -1,0 +1,14 @@
+.movie_form {
+  min-width: 100%;
+}
+.movie_form_container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  min-width: 230px;
+}
+.save_button {
+  margin-right: 1rem;
+}
